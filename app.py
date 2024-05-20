@@ -269,4 +269,6 @@ def recommend_crop():
 
 
 if __name__ == '__main__':
+    port = os.environ.get('PORT', 5000)  # Default port 5000 if PORT is not set
     app.run(debug=True, host='0.0.0.0', port=port)
+ 
