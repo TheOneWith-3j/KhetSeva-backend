@@ -11,10 +11,15 @@ import h5py
 from PIL import Image
 from keras.models import load_model
 import random
+import os
+
+port = os.environ.get('PORT', 5000)  # Default port 5000 if PORT is not set
+
 
 
 app = Flask(__name__)
 CORS(app)
+
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, 'models') 
@@ -264,4 +269,4 @@ def recommend_crop():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=port)
